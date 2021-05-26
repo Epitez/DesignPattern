@@ -1,0 +1,31 @@
+@startuml
+' ** Les objets
+object "Le Moteur : Moteur" as leMoteur {
+    BouttonPressé()
+}
+object "Le Portail : Portail" as lePortail {
+    void Deplace(Bool VersLaGauche)
+}
+object "L'Ampoule : Ampoule" as lAmpoule {
+    Bool EstAllumee
+    void Interupteur(Bool On)
+}
+object "Capteur Gauche : Capteur" as capteurGauche {
+    Bool portailPresent
+}
+object "Capteur Droite : Capteur" as capteurDroite  {
+    Bool portailPresent
+}
+object "La Telecommande : Telecommande" as laTelecommande {
+    Bouton
+}
+
+' ** Les connexions
+
+leMoteur -- lePortail : Deplace(versLaGauche)
+leMoteur -- lAmpoule
+leMoteur -- capteurGauche
+leMoteur -- capteurDroite
+laTelecommande -- leMoteur
+
+@enduml
